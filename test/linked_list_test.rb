@@ -140,8 +140,12 @@ class JungleListTest < Minitest::Test
     assert_equal "value", list.head.data
   end
 
-  def find
-    skip
+  def test_find
+    list = JungleList.new("one")
+    list.append("two")
+    list.append("three")
+    list.append("four")
+    assert_equal ("three four"), list.find(2, 2)
   end
 
   def test_all
