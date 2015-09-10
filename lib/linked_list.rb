@@ -77,6 +77,21 @@ class JungleList < JungleBeats
     current.pointer = new_node
   end
 
+  def find(index, amount)
+    count = 0
+    current = @head
+    until count == index
+      current = current.pointer
+      count += 1
+    end
+    find_string = ""
+    amount.times do
+      find_string << current.data + " "
+      current = current.pointer
+    end
+    find_string.strip
+  end
+
   def all
     all = []
     current = @head
