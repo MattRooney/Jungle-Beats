@@ -2,7 +2,7 @@
 require_relative '../lib/node.rb'
 
 class JungleList
-  
+
   attr_accessor :head
 
   def initialize(data)
@@ -37,14 +37,16 @@ class JungleList
   end
 
   def pop(data = 1)
+    string = ""
     data.times do
       current = @head
       until current.pointer == tail
         current = current.pointer
       end
-      # tail.data
+      string << tail.data + " "
       current.pointer = nil
     end
+    string
   end
 
   def includes?(data)

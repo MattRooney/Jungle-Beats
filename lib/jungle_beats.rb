@@ -7,7 +7,12 @@ class JungleBeats
 
   def initialize(beats)
     @beats = beats
-    @link_list = JungleList.new(beats)
+    split_beats = beats.split
+    first_beat = split_beats[0]
+    @linked_list = JungleList.new(first_beat)
+    split_beats[1..-1].each do |beat|
+      linked_list.append(beat)
+    end
   end
 
   def beats
@@ -15,7 +20,45 @@ class JungleBeats
   end
 
   def play
-    `say -v Fred "#{beats}"`
+    `say -r 500 -v Boing "#{beats}"`
+  end
+
+  def append(beats)
+    split_beats = beats.split
+    split_beats[0..-1].each do |beat|
+      linked_list.append(beat)
+    end
+  end
+
+  def prepend(beats)
+    split_beats = beats.split
+    split_beats[0..-1].each do |beat|
+      linked_list.prepend(beat)
+    end
+  end
+
+  def all
+    linked_list.all
+  end
+
+  def includes?(n)
+    linked_list.includes?(n)
+  end
+
+  def count
+    linked_list.count
+  end
+
+  def pop(n = 1)
+    linked_list.pop(n)
+  end
+
+  def find(index, amount)
+    linked_list.find(index, amount)
+  end
+
+  def insert(data, num)
+    linked_list.insert(data, num)
   end
 # binding.pry
 end

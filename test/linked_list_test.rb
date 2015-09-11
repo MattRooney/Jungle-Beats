@@ -80,15 +80,15 @@ class JungleListTest < Minitest::Test
 
   def test_it_returns_popped_value
     skip
-    list = JungleList.new("beep")
-    list.append("bop")
-    list.append("duh")
-    list.append("blop")
-    list.append("blop")
-    list.append("wop")
-    list.pop
-    assert_equal "blop", list.tail.data
-    assert_equal "wop", list.pop
+    list = JungleList.new("one")
+    list.append("two")
+    list.append("three")
+    list.append("four")
+    list.append("five")
+    list.append("six")
+    list.pop(2)
+    assert_equal "four", list.tail.data
+    assert_equal "five six", list.pop
   end
 
   def test_it_can_includes
