@@ -1,9 +1,8 @@
 # linked_list.rb
-require_relative 'node.rb'
-require_relative 'jungle_beats.rb'
+require_relative '../lib/node.rb'
 
-class JungleList < JungleBeats
-
+class JungleList
+  
   attr_accessor :head
 
   def initialize(data)
@@ -93,13 +92,12 @@ class JungleList < JungleBeats
   end
 
   def all
-    all = []
+    all = ""
     current = @head
     until current == nil
-      all << current.data
-      all << " "
+      all << current.data + " "
       current = current.pointer
     end
-    all.join.strip
+    all.strip
   end
 end
